@@ -1,0 +1,126 @@
+/*
+ * Pagination Atom
+ * Source: Figma – ⚛️ Atoms: Pagination (node 483:1722)
+ *   Pagination Number set : 492:3027
+ *   Pagination composite  : 2293:154436
+ *
+ * Page buttons  : 32×32 px · border-radius 100 px (circle) · gap 8 px
+ * Active        : bg = --color-bg-brand · text = white
+ * Hover         : bg = --color-bg-hover
+ * Prev/Next     : 32×32 circular outline buttons (1 px border-tertiary)
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Container
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.pagination {
+  display:     inline-flex;
+  align-items: center;
+  gap:         8px;
+  list-style:  none;
+  padding:     0;
+  margin:      0;
+  flex-wrap:   wrap;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Page number button
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.pagination-btn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           32px;
+  height:          32px;
+  border-radius:   100px;
+  border:          none;
+  background:      transparent;
+  /* typography */
+  font-family:     Inter, sans-serif;
+  font-size:       16px;
+  font-weight:     400;
+  line-height:     24px;
+  color:           var(--color-content-primary);
+  cursor:          pointer;
+  padding:         0;
+  user-select:     none;
+  transition:      background 0.1s, color 0.1s;
+}
+
+.pagination-btn:hover:not(:disabled):not(.pagination-active) {
+  background: var(--color-bg-hover);
+}
+
+.pagination-btn:focus-visible {
+  outline:        2px solid var(--color-border-focus);
+  outline-offset: 1px;
+}
+
+/* Active page */
+.pagination-active {
+  background: var(--color-bg-brand);
+  color:      var(--color-content-primary-inverse);
+  cursor:     default;
+}
+
+.pagination-active:hover {
+  background: var(--color-bg-brand-hover);
+}
+
+/* Ellipsis — display-only, no interaction */
+.pagination-dots {
+  cursor:          default;
+  color:           var(--color-content-tertiary);
+  pointer-events:  none;
+  letter-spacing:  0.04em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Prev / Next navigation buttons
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.pagination-nav {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           32px;
+  height:          32px;
+  border-radius:   9999px;
+  border:          1px solid var(--color-border-tertiary);
+  background:      var(--color-bg-primary);
+  color:           var(--color-content-primary);
+  cursor:          pointer;
+  padding:         0;
+  transition:      background 0.1s, border-color 0.1s;
+}
+
+.pagination-nav:hover:not(:disabled) {
+  background:    var(--color-bg-hover);
+  border-color:  var(--color-border-secondary);
+}
+
+.pagination-nav:focus-visible {
+  outline:        2px solid var(--color-border-focus);
+  outline-offset: 1px;
+}
+
+.pagination-nav:disabled {
+  opacity: 0.35;
+  cursor:  not-allowed;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Page label  (e.g. "Page 3 of 10")
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.pagination-label {
+  font-family: Inter, sans-serif;
+  font-size:   14px;
+  font-weight: 400;
+  color:       var(--color-content-secondary);
+  white-space: nowrap;
+}

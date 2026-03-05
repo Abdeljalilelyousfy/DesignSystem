@@ -1,0 +1,300 @@
+/*
+ * Checkbox, Radio, Check Circle & Toggle Atoms
+ * Source: Figma – ⚛️ Atoms: Checkboxes / Radios (node 2:18)
+ *
+ * Components : Checkbox · Radio · Toggle
+ * Sizes      : sm (16 px) · md (20 px) · lg (24 px)
+ * States     : Active · Hover · Focused · Disabled
+ * Types      : Checked · Unchecked
+ *
+ * Checkmarks rendered via SVG data-URI background-image.
+ * Focus ring via box-shadow to avoid layout shift.
+ * Toggle states driven by CSS :has() — no JS class toggling needed.
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Control wrapper
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.cb-control {
+  display:     inline-flex;
+  align-items: flex-start;
+  gap:         8px;
+  cursor:      pointer;
+  user-select: none;
+}
+
+/* Large size gets a wider gap between control and label */
+.cb-control.cb-lg { gap: 16px; }
+
+.cb-control:has(.cb-input:disabled) { cursor: not-allowed; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Native input (appearance: none)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.cb-input {
+  appearance:         none;
+  -webkit-appearance: none;
+  flex-shrink:  0;
+  width:        var(--cb-size, 20px);
+  height:       var(--cb-size, 20px);
+  border:       1.5px solid var(--color-border-tertiary);
+  background:   var(--color-bg-primary);
+  cursor:       pointer;
+  margin:       0;
+  margin-top:   2px; /* align control centre with text cap-height */
+  transition:   border-color 0.1s, background 0.1s, box-shadow 0.1s;
+}
+
+/* ── Sizes (set on wrapper so vars cascade down) ─────────────────────────── */
+
+.cb-sm {
+  --cb-size:      16px;
+  --cb-label-fs:  12px; --cb-label-lh: 16px;
+  --cb-sub-fs:    11px; --cb-sub-lh:   14px;
+}
+.cb-md {
+  --cb-size:      20px;
+  --cb-label-fs:  14px; --cb-label-lh: 20px;
+  --cb-sub-fs:    12px; --cb-sub-lh:   16px;
+}
+.cb-lg {
+  --cb-size:      24px;
+  --cb-label-fs:  16px; --cb-label-lh: 24px;
+  --cb-sub-fs:    14px; --cb-sub-lh:   20px;
+}
+
+/* ── Shape ───────────────────────────────────────────────────────────────── */
+
+.cb-checkbox    { border-radius: 4px;      } /* square */
+.cb-radio       { border-radius: 9999px;   } /* circle — dot indicator  */
+.cb-check-circle{ border-radius: 9999px;   } /* circle — tick indicator */
+
+/* ── Hover ───────────────────────────────────────────────────────────────── */
+
+.cb-input:hover:not(:disabled) {
+  border-color: var(--color-border-secondary);
+}
+
+/* ── Focus ───────────────────────────────────────────────────────────────── */
+
+.cb-input:focus-visible {
+  outline:      none;
+  border-color: var(--color-border-focus);
+  box-shadow:   0 0 0 3px rgba(43, 100, 153, 0.14);
+}
+
+/* ── Checked ─────────────────────────────────────────────────────────────── */
+
+.cb-input:checked {
+  background:   var(--color-bg-brand);
+  border-color: var(--color-bg-brand);
+}
+.cb-input:checked:hover:not(:disabled) {
+  background:   var(--color-bg-brand-hover);
+  border-color: var(--color-bg-brand-hover);
+}
+.cb-input:checked:focus-visible {
+  box-shadow: 0 0 0 3px rgba(43, 100, 153, 0.22);
+}
+
+/* ── Disabled ────────────────────────────────────────────────────────────── */
+
+.cb-input:disabled:not(:checked) {
+  border-color: var(--color-neutral-100);
+  background:   var(--color-bg-primary);
+  cursor:       not-allowed;
+}
+.cb-input:disabled:checked {
+  background:   var(--color-neutral-50);
+  border-color: var(--color-neutral-100);
+  cursor:       not-allowed;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Indicator icons (SVG data-URI background-image)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Checkbox — white checkmark */
+.cb-checkbox:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolyline points='3,8 6.5,11.5 13,4.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat:   no-repeat;
+  background-position: center;
+  background-size:     75%;
+}
+/* Checkbox — muted checkmark when disabled */
+.cb-checkbox:disabled:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolyline points='3,8 6.5,11.5 13,4.5' stroke='%23a3acba' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+}
+
+/* Check Circle — white checkmark (circle shape) */
+.cb-check-circle:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolyline points='3,8 6.5,11.5 13,4.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat:   no-repeat;
+  background-position: center;
+  background-size:     75%;
+}
+.cb-check-circle:disabled:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolyline points='3,8 6.5,11.5 13,4.5' stroke='%23a3acba' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+}
+
+/* Radio — white dot */
+.cb-radio:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4.5' fill='white'/%3E%3C/svg%3E");
+  background-repeat:   no-repeat;
+  background-position: center;
+  background-size:     100%;
+}
+/* Radio — muted dot when disabled */
+.cb-radio:disabled:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4.5' fill='%23a3acba'/%3E%3C/svg%3E");
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Label group (label + subtitle)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.cb-label-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+}
+
+.cb-label {
+  font-family: Inter, sans-serif;
+  font-size:   var(--cb-label-fs, 14px);
+  font-weight: 400;
+  line-height: var(--cb-label-lh, 20px);
+  color:       var(--color-content-primary);
+}
+
+.cb-subtitle {
+  font-family: Inter, sans-serif;
+  font-size:   var(--cb-sub-fs, 12px);
+  font-weight: 400;
+  line-height: var(--cb-sub-lh, 16px);
+  color:       var(--color-neutral-550);
+}
+
+/* Disabled label colours */
+.cb-control:has(.cb-input:disabled) .cb-label    { color: var(--color-neutral-150); }
+.cb-control:has(.cb-input:disabled) .cb-subtitle { color: var(--color-neutral-150); }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Toggle (Switch)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Wrapper */
+.toggle-control {
+  display:     inline-flex;
+  align-items: flex-start;
+  gap:         8px;
+  cursor:      pointer;
+  user-select: none;
+}
+.toggle-control.toggle-lg   { gap: 16px; }
+.toggle-control:has(.toggle-hidden:disabled) { cursor: not-allowed; }
+
+/* Visually hidden native checkbox */
+.toggle-hidden {
+  position:   absolute;
+  width:  1px; height: 1px;
+  padding: 0;  margin: -1px;
+  overflow:   hidden;
+  clip:       rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Visual track */
+.toggle-track {
+  position:     relative;
+  display:      inline-block;
+  width:        var(--toggle-w, 36px);
+  height:       var(--toggle-h, 20px);
+  border-radius: 9999px;
+  background:   var(--color-neutral-800);
+  flex-shrink:  0;
+  margin-top:   2px;
+  transition:   background 0.15s, opacity 0.15s, box-shadow 0.15s;
+}
+
+/* Thumb */
+.toggle-thumb {
+  position:      absolute;
+  top:           var(--toggle-off, 2px);
+  left:          var(--toggle-off, 2px);
+  width:         var(--toggle-thumb, 16px);
+  height:        var(--toggle-thumb, 16px);
+  border-radius: 50%;
+  background:    #ffffff;
+  transition:    transform 0.15s;
+  pointer-events: none;
+}
+
+/* ── Toggle sizes ────────────────────────────────────────────────────────── */
+
+.toggle-sm {
+  --toggle-w: 28px; --toggle-h: 16px;
+  --toggle-thumb: 12px; --toggle-off: 2px; --toggle-travel: 12px;
+  --cb-label-fs: 12px; --cb-label-lh: 16px;
+  --cb-sub-fs:   11px; --cb-sub-lh:   14px;
+}
+.toggle-md {
+  --toggle-w: 36px; --toggle-h: 20px;
+  --toggle-thumb: 16px; --toggle-off: 2px; --toggle-travel: 16px;
+  --cb-label-fs: 14px; --cb-label-lh: 20px;
+  --cb-sub-fs:   12px; --cb-sub-lh:   16px;
+}
+.toggle-lg {
+  --toggle-w: 44px; --toggle-h: 24px;
+  --toggle-thumb: 20px; --toggle-off: 2px; --toggle-travel: 20px;
+  --cb-label-fs: 16px; --cb-label-lh: 24px;
+  --cb-sub-fs:   14px; --cb-sub-lh:   20px;
+}
+
+/* ── Toggle states ───────────────────────────────────────────────────────── */
+
+/* On */
+.toggle-control:has(.toggle-hidden:checked) .toggle-track {
+  background: var(--color-brand-400);
+}
+.toggle-control:has(.toggle-hidden:checked) .toggle-thumb {
+  transform: translateX(var(--toggle-travel, 16px));
+}
+
+/* Focus */
+.toggle-control:has(.toggle-hidden:focus-visible) .toggle-track {
+  box-shadow: 0 0 0 3px rgba(43, 100, 153, 0.14);
+}
+
+/* Disabled */
+.toggle-control:has(.toggle-hidden:disabled) .toggle-track { opacity: 0.45; }
+
+/* ── Toggle label group ──────────────────────────────────────────────────── */
+
+.toggle-label-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+}
+
+.toggle-label {
+  font-family: Inter, sans-serif;
+  font-size:   var(--cb-label-fs, 14px);
+  font-weight: 400;
+  line-height: var(--cb-label-lh, 20px);
+  color:       var(--color-content-primary);
+}
+
+.toggle-subtitle {
+  font-family: Inter, sans-serif;
+  font-size:   var(--cb-sub-fs, 12px);
+  font-weight: 400;
+  line-height: var(--cb-sub-lh, 16px);
+  color:       var(--color-neutral-550);
+}
+
+.toggle-control:has(.toggle-hidden:disabled) .toggle-label    { color: var(--color-neutral-150); }
+.toggle-control:has(.toggle-hidden:disabled) .toggle-subtitle { color: var(--color-neutral-150); }

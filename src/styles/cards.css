@@ -1,0 +1,45 @@
+.card {
+  box-sizing: border-box;
+  transition: box-shadow 150ms ease, border-color 150ms ease, transform 100ms ease;
+}
+
+.card-interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* outlined hover */
+.card-interactive:hover.card-outlined {
+  box-shadow: 0 0 4px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.09);
+}
+
+/* elevated hover */
+.card-interactive:hover.card-elevated {
+  box-shadow: 0 0 10px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* filled hover */
+.card-interactive:hover.card-filled {
+  box-shadow: 0 0 4px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.09);
+}
+
+/* ghost hover */
+.card-interactive:hover.card-ghost {
+  background: var(--color-bg-hover) !important;
+}
+
+/* press */
+.card-interactive:active {
+  transform: translateY(1px);
+}
+
+/* selected state */
+.card-selected {
+  outline: 2px solid #6366f1;
+  outline-offset: -1px;
+}
+
+/* disabled */
+.card-disabled {
+  pointer-events: none;
+}

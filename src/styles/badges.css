@@ -1,0 +1,151 @@
+/*
+ * Badge / Tag Atom
+ * Source: Figma – ⚛️ Atoms: Tags / Badges (node 2:20), component set 465:4723
+ *
+ * Types   : simple · dot · icon · avatar
+ * Sizes   : sm (20 px) · md (28 px) · lg (32 px)
+ * Colors  : primary · error · warning · success · info
+ *
+ * Pattern : colour classes set --badge-* custom properties;
+ *           size classes set --badge-* dimension tokens.
+ *           Base .badge class consumes all vars.
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Base
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.badge {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             4px;
+  border-radius:   9999px;
+  background:      var(--badge-bg);
+  padding:         var(--badge-v-pad) var(--badge-h-pad);
+  /* typography */
+  font-family:     Inter, sans-serif;
+  font-size:       var(--badge-fs);
+  font-weight:     400;
+  line-height:     var(--badge-lh);
+  color:           var(--badge-color);
+  white-space:     nowrap;
+  /* no text selection on labels */
+  user-select:     none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Sizes
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.badge-lg {
+  --badge-h-pad:    12px;
+  --badge-v-pad:    4px;
+  --badge-fs:       16px;
+  --badge-lh:       24px;
+  --badge-dot-size: 8px;
+  --badge-icon-size:16px;
+  --badge-avatar-size: 22px;
+  --badge-avatar-fs:   10px;
+}
+
+.badge-md {
+  --badge-h-pad:    8px;
+  --badge-v-pad:    4px;
+  --badge-fs:       14px;
+  --badge-lh:       20px;
+  --badge-dot-size: 8px;
+  --badge-icon-size:14px;
+  --badge-avatar-size: 18px;
+  --badge-avatar-fs:   9px;
+}
+
+.badge-sm {
+  --badge-h-pad:    8px;
+  --badge-v-pad:    2px;
+  --badge-fs:       12px;
+  --badge-lh:       16px;
+  --badge-dot-size: 6px;
+  --badge-icon-size:12px;
+  --badge-avatar-size: 14px;
+  --badge-avatar-fs:   8px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Colours
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.badge-primary {
+  --badge-bg:        var(--color-bg-hover);
+  --badge-color:     var(--color-content-primary);
+  --badge-indicator: var(--color-content-primary);
+}
+
+.badge-error {
+  --badge-bg:        var(--color-bg-error-subtle);
+  --badge-color:     var(--color-content-error-bold);
+  --badge-indicator: var(--color-content-error-bold);
+}
+
+.badge-warning {
+  --badge-bg:        var(--color-bg-warning-subtle);
+  --badge-color:     var(--color-content-warning-bold);
+  --badge-indicator: var(--color-content-warning-bold);
+}
+
+.badge-success {
+  --badge-bg:        var(--color-bg-success-subtle);
+  --badge-color:     var(--color-content-success-bold);
+  --badge-indicator: var(--color-content-success-bold);
+}
+
+.badge-info {
+  --badge-bg:        var(--color-bg-info-subtle);
+  --badge-color:     var(--color-content-info);
+  --badge-indicator: var(--color-content-info);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Indicator elements
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Dot */
+.badge-dot-el {
+  flex-shrink:   0;
+  width:         var(--badge-dot-size, 8px);
+  height:        var(--badge-dot-size, 8px);
+  border-radius: 50%;
+  background:    var(--badge-indicator);
+}
+
+/* Icon wrapper — inherits indicator colour via currentColor */
+.badge-icon-el {
+  flex-shrink: 0;
+  display:     flex;
+  align-items: center;
+  color:       var(--badge-indicator);
+}
+
+/* Avatar circle */
+.badge-avatar-el {
+  flex-shrink:     0;
+  width:           var(--badge-avatar-size, 18px);
+  height:          var(--badge-avatar-size, 18px);
+  border-radius:   50%;
+  background:      var(--badge-indicator);
+  color:           var(--color-content-primary-inverse);
+  font-family:     Inter, sans-serif;
+  font-size:       var(--badge-avatar-fs, 9px);
+  font-weight:     600;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  overflow:        hidden;
+  text-transform:  uppercase;
+}
+
+.badge-avatar-el img {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+}

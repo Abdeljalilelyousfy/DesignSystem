@@ -1,0 +1,282 @@
+/*
+ * Color Foundations
+ * Source: Figma – WDS.Foundations: Color (node 310-5905)
+ *         Figma – WDS.Foundations: Semantic color (node 310-6103)
+ *
+ * Section 1 — Primitive palette custom properties (all 13 scales)
+ * Section 2 — Semantic tokens: light mode (:root) + dark mode (.dark)
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   1. Primitive Palette
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Brand */
+  --color-brand-100: #d5e0eb;
+  --color-brand-200: #aac1d6;
+  --color-brand-300: #80a2c2;
+  --color-brand-400: #5583ad;
+  --color-brand-500: #2b6499;
+  --color-brand-600: #22507a;
+  --color-brand-700: #1a3c5c;
+  --color-brand-800: #11283d;
+  --color-brand-900: #09141f;
+
+  /* Brand Secondary */
+  --color-brand-secondary-100: #d5e0eb;
+  --color-brand-secondary-200: #aac1d6;
+  --color-brand-secondary-300: #80a2c2;
+  --color-brand-secondary-400: #5583ad;
+  --color-brand-secondary-500: #2b6499;
+  --color-brand-secondary-600: #22507a;
+  --color-brand-secondary-700: #1a3c5c;
+  --color-brand-secondary-800: #11283d;
+  --color-brand-secondary-900: #09141f;
+
+  /* Neutral */
+  --color-neutral-50:  #f1f2f4;
+  --color-neutral-100: #e1e4e9;
+  --color-neutral-150: #d2d6dd;
+  --color-neutral-200: #c2c8d1;
+  --color-neutral-250: #b2bac6;
+  --color-neutral-300: #a3acba;
+  --color-neutral-350: #939eae;
+  --color-neutral-400: #8390a2;
+  --color-neutral-450: #748297;
+  --color-neutral-500: #64748b;
+  --color-neutral-550: #5a687d;
+  --color-neutral-600: #505d6f;
+  --color-neutral-650: #3c4553;
+  --color-neutral-700: #323945;
+  --color-neutral-750: #272e37;
+  --color-neutral-800: #1d2229;
+  --color-neutral-850: #13161b;
+  --color-neutral-900: #090b0d;
+
+  /* Blue */
+  --color-blue-100: #d6ddff;
+  --color-blue-200: #adbbff;
+  --color-blue-300: #8599ff;
+  --color-blue-400: #5c77ff;
+  --color-blue-500: #3355ff;
+  --color-blue-600: #2944cc;
+  --color-blue-700: #1f3399;
+  --color-blue-800: #142266;
+  --color-blue-900: #0a1133;
+
+  /* Purple */
+  --color-purple-100: #e4d6ff;
+  --color-purple-200: #c9adff;
+  --color-purple-300: #ad85ff;
+  --color-purple-400: #925cff;
+  --color-purple-500: #7733ff;
+  --color-purple-600: #5f29cc;
+  --color-purple-700: #471f99;
+  --color-purple-800: #301466;
+  --color-purple-900: #180a33;
+
+  /* Violet */
+  --color-violet-100: #f1d6ff;
+  --color-violet-200: #e4adff;
+  --color-violet-300: #d685ff;
+  --color-violet-400: #c95cff;
+  --color-violet-500: #bb33ff;
+  --color-violet-600: #9629cc;
+  --color-violet-700: #701f99;
+  --color-violet-800: #4b1466;
+  --color-violet-900: #250a33;
+
+  /* Red */
+  --color-red-100: #facccc;
+  --color-red-200: #f59999;
+  --color-red-300: #ef6666;
+  --color-red-400: #ea3333;
+  --color-red-500: #e50000;
+  --color-red-600: #b70000;
+  --color-red-700: #890000;
+  --color-red-800: #5c0000;
+  --color-red-900: #2e0000;
+
+  /* Pink */
+  --color-pink-100: #ffd6dd;
+  --color-pink-200: #ffadbb;
+  --color-pink-300: #ff8599;
+  --color-pink-400: #ff5c77;
+  --color-pink-500: #ff3355;
+  --color-pink-600: #cc2944;
+  --color-pink-700: #991f33;
+  --color-pink-800: #661422;
+  --color-pink-900: #330a11;
+
+  /* Orange */
+  --color-orange-100: #ffe6cc;
+  --color-orange-200: #ffcc99;
+  --color-orange-300: #ffb366;
+  --color-orange-400: #ff9933;
+  --color-orange-500: #ff8000;
+  --color-orange-600: #cc6600;
+  --color-orange-700: #994d00;
+  --color-orange-800: #663300;
+  --color-orange-900: #331a00;
+
+  /* Yellow */
+  --color-yellow-100: #fff5cc;
+  --color-yellow-200: #ffeb99;
+  --color-yellow-300: #ffe066;
+  --color-yellow-400: #ffd633;
+  --color-yellow-500: #ffcc00;
+  --color-yellow-600: #cca300;
+  --color-yellow-700: #997a00;
+  --color-yellow-800: #665200;
+  --color-yellow-900: #332900;
+
+  /* Green */
+  --color-green-100: #ccebd6;
+  --color-green-200: #99d6ad;
+  --color-green-300: #66c285;
+  --color-green-400: #33ad5c;
+  --color-green-500: #009933;
+  --color-green-600: #007a29;
+  --color-green-700: #005c1f;
+  --color-green-800: #003d14;
+  --color-green-900: #001f0a;
+
+  /* Teal */
+  --color-teal-100: #ccf5f5;
+  --color-teal-200: #99ebeb;
+  --color-teal-300: #66e0e0;
+  --color-teal-400: #33d6d6;
+  --color-teal-500: #00cccc;
+  --color-teal-600: #00a3a3;
+  --color-teal-700: #007a7a;
+  --color-teal-800: #005252;
+  --color-teal-900: #002929;
+
+  /* Cyan */
+  --color-cyan-100: #cceeff;
+  --color-cyan-200: #99ddff;
+  --color-cyan-300: #66ccff;
+  --color-cyan-400: #33bbff;
+  --color-cyan-500: #00aaff;
+  --color-cyan-600: #0088cc;
+  --color-cyan-700: #006699;
+  --color-cyan-800: #004466;
+  --color-cyan-900: #002233;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   2. Semantic Tokens — Light Mode (default)
+   Source: Figma – WDS.Foundations: Semantic color (node 310-6103)
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Content */
+  --color-content-primary:          #090b0d;
+  --color-content-secondary:        #1d2229;
+  --color-content-tertiary:         #3c4553;
+  --color-content-primary-inverse:  #ffffff;
+  --color-content-secondary-inverse:#e1e4e9;
+  --color-content-tertiary-inverse: #a3acba;
+  --color-content-disabled:         #a3acba;
+  --color-content-brand:            #2b6499;
+  --color-content-brand-hover:      #22507a;
+  --color-content-brand-pressed:    #11283d;
+  --color-content-brand-secondary:  #2b6499;
+  --color-content-info:             #3355ff;
+  --color-content-warning:          #ffcc00;
+  --color-content-warning-bold:     #997a00;
+  --color-content-error:            #e50000;
+  --color-content-error-bold:       #b70000;
+  --color-content-success:          #009933;
+  --color-content-success-bold:     #007a29;
+
+  /* Background */
+  --color-bg-primary:          #ffffff;
+  --color-bg-hover:            #f1f2f4;
+  --color-bg-pressed:          #e1e4e9;
+  --color-bg-selected:         #d5e0eb;
+  --color-bg-disabled:         #f1f2f4;
+  --color-bg-inverse:          #090b0d;
+  --color-bg-brand:            #2b6499;
+  --color-bg-brand-hover:      #22507a;
+  --color-bg-brand-pressed:    #1a3c5c;
+  --color-bg-brand-secondary:  #2b6499;
+  --color-bg-info:             #3355ff;
+  --color-bg-info-subtle:      #d6ddff;
+  --color-bg-warning:          #ffcc00;
+  --color-bg-warning-subtle:   #fff5cc;
+  --color-bg-error:            #e50000;
+  --color-bg-error-subtle:     #facccc;
+  --color-bg-success:          #009933;
+  --color-bg-success-subtle:   #ccebd6;
+
+  /* Border */
+  --color-border-primary:   #505d6f;
+  --color-border-secondary: #8390a2;
+  --color-border-tertiary:  #c2c8d1;
+  --color-border-disabled:  #f1f2f4;
+  --color-border-brand:     #2b6499;
+  --color-border-inverse:   #ffffff;
+  --color-border-focus:     #2b6499;
+  --color-border-info:      #3355ff;
+  --color-border-warning:   #ffcc00;
+  --color-border-error:     #e50000;
+  --color-border-success:   #009933;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   2b. Semantic Tokens — Dark Mode
+   ───────────────────────────────────────────────────────────────────────────── */
+.dark {
+  /* Content */
+  --color-content-primary:          #e1e4e9;
+  --color-content-secondary:        #c2c8d1;
+  --color-content-tertiary:         #8390a2;
+  --color-content-primary-inverse:  #090b0d;
+  --color-content-secondary-inverse:#323945;
+  --color-content-tertiary-inverse: #505d6f;
+  --color-content-disabled:         #505d6f;
+  --color-content-brand:            #80a2c2;
+  --color-content-brand-hover:      #80a2c2;
+  --color-content-brand-pressed:    #aac1d6;
+  --color-content-brand-secondary:  #80a2c2;
+  --color-content-info:             #8599ff;
+  --color-content-warning:          #ffe066;
+  --color-content-warning-bold:     #ffd633;
+  --color-content-error:            #ef6666;
+  --color-content-error-bold:       #f59999;
+  --color-content-success:          #66c285;
+  --color-content-success-bold:     #99d6ad;
+
+  /* Background */
+  --color-bg-primary:          #090b0d;
+  --color-bg-hover:            #1d2229;
+  --color-bg-pressed:          #323945;
+  --color-bg-selected:         #09141f;
+  --color-bg-disabled:         #1d2229;
+  --color-bg-inverse:          #e1e4e9;
+  --color-bg-brand:            #80a2c2;
+  --color-bg-brand-hover:      #aac1d6;
+  --color-bg-brand-pressed:    #d5e0eb;
+  --color-bg-brand-secondary:  #80a2c2;
+  --color-bg-info:             #8599ff;
+  --color-bg-info-subtle:      #0a1133;
+  --color-bg-warning:          #ffe066;
+  --color-bg-warning-subtle:   #332900;
+  --color-bg-error:            #ef6666;
+  --color-bg-error-subtle:     #2e0000;
+  --color-bg-success:          #66c285;
+  --color-bg-success-subtle:   #001f0a;
+
+  /* Border */
+  --color-border-primary:   #c2c8d1;
+  --color-border-secondary: #a3acba;
+  --color-border-tertiary:  #64748b;
+  --color-border-disabled:  #505d6f;
+  --color-border-brand:     #80a2c2;
+  --color-border-inverse:   #000000;
+  --color-border-focus:     #80a2c2;
+  --color-border-info:      #8599ff;
+  --color-border-warning:   #ffe066;
+  --color-border-error:     #ef6666;
+  --color-border-success:   #66c285;
+}

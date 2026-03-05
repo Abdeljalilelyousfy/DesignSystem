@@ -1,0 +1,36 @@
+/*
+ * Shadow Foundations
+ * Source: Figma – WDS.Foundations: Semantic color (node 310-6103)
+ *         Surface elevation levels: L0 (flat) → L1 (subtle) → L2 (elevated)
+ *
+ * Each level defines the shadow AND the surface background for light/dark modes.
+ * Shadow values are the same in both modes; background colours differ.
+ */
+
+:root {
+  /* ── Shadow definitions ──────────────────────────────────────────────── */
+  --shadow-l0: none;
+  --shadow-l1: 0 0 4px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.10);
+  --shadow-l2: 0 0 10px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.10);
+
+  /* ── Surface background — Light mode ────────────────────────────────── */
+  --surface-l0-bg: #ffffff;   /* = Background/Primary/Light   */
+  --surface-l1-bg: #ffffff;
+  --surface-l2-bg: #ffffff;
+}
+
+/* ── Surface background — Dark mode ─────────────────────────────────────── */
+.dark {
+  --surface-l0-bg: #090b0d;   /* = Neutral/900 (Background/Primary/Dark)  */
+  --surface-l1-bg: #1d2229;   /* = Neutral/800 (Background/Hover/Dark)    */
+  --surface-l2-bg: #323945;   /* = Neutral/700 (Background/Pressed/Dark)  */
+}
+
+/* ── Utility classes ─────────────────────────────────────────────────────── */
+.shadow-l0 { box-shadow: var(--shadow-l0); }
+.shadow-l1 { box-shadow: var(--shadow-l1); }
+.shadow-l2 { box-shadow: var(--shadow-l2); }
+
+.surface-l0 { background: var(--surface-l0-bg); box-shadow: var(--shadow-l0); }
+.surface-l1 { background: var(--surface-l1-bg); box-shadow: var(--shadow-l1); }
+.surface-l2 { background: var(--surface-l2-bg); box-shadow: var(--shadow-l2); }

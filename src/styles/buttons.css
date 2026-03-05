@@ -1,0 +1,175 @@
+/*
+ * Button Atoms
+ * Source: Figma – ⚛️ Atoms: Buttons (node 2:16)
+ *
+ * Variants : primary | secondary | outline | link
+ * Sizes    : sm | md | lg | xl | 2xl
+ * States   : :hover | :active | :focus-visible | :disabled (CSS-native)
+ *
+ * Icon Button
+ * Variants : filled | outline
+ * Sizes    : 2xs | xs | sm | md | lg | xl | 2xl
+ *
+ * All colour values reference tokens from colors.css — no hardcoded hex.
+ */
+
+/* ── Button base ─────────────────────────────────────────────────────────── */
+
+.btn {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+  outline: none;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+/* ── Button sizes ────────────────────────────────────────────────────────── */
+
+.btn-sm  { height: 40px; padding: 8px 16px;  font-size: 16px; line-height: 24px; gap: 8px;  }
+.btn-md  { height: 48px; padding: 12px 24px; font-size: 16px; line-height: 24px; gap: 8px;  }
+.btn-lg  { height: 56px; padding: 16px 32px; font-size: 16px; line-height: 24px; gap: 12px; }
+.btn-xl  { height: 66px; padding: 20px 40px; font-size: 18px; line-height: 26px; gap: 12px; }
+.btn-2xl { height: 80px; padding: 24px 48px; font-size: 18px; line-height: 26px; gap: 12px; }
+
+/* Link buttons ignore size geometry (height/padding collapses to line height) */
+.btn-link.btn-sm,
+.btn-link.btn-md,
+.btn-link.btn-lg  { font-size: 16px; line-height: 24px; height: auto; padding: 0; }
+.btn-link.btn-xl,
+.btn-link.btn-2xl { font-size: 18px; line-height: 26px; height: auto; padding: 0; }
+
+/* ── Primary ─────────────────────────────────────────────────────────────── */
+
+.btn-primary {
+  background: var(--color-bg-brand);
+  color:      var(--color-content-primary-inverse);
+}
+.btn-primary:hover:not(:disabled)  { background: var(--color-bg-brand-hover);    }
+.btn-primary:active:not(:disabled) { background: var(--color-bg-brand-pressed);  }
+.btn-primary:disabled              { background: var(--color-neutral-100);        }
+
+/* ── Secondary (same visual as Primary; maps to brand-secondary token) ───── */
+
+.btn-secondary {
+  background: var(--color-bg-brand-secondary);
+  color:      var(--color-content-primary-inverse);
+}
+.btn-secondary:hover:not(:disabled)  { background: var(--color-bg-brand-hover);   }
+.btn-secondary:active:not(:disabled) { background: var(--color-bg-brand-pressed); }
+.btn-secondary:disabled              { background: var(--color-neutral-100);       }
+
+/* ── Outline ─────────────────────────────────────────────────────────────── */
+
+.btn-outline {
+  background:   var(--color-bg-primary);
+  color:        var(--color-content-primary);
+  border-color: var(--color-border-tertiary);
+}
+.btn-outline:hover:not(:disabled)  { background: var(--color-bg-hover);   }
+.btn-outline:active:not(:disabled) { background: var(--color-bg-pressed); }
+.btn-outline:disabled {
+  color:        var(--color-neutral-150);
+  border-color: var(--color-neutral-100);
+}
+
+/* ── Link ────────────────────────────────────────────────────────────────── */
+
+.btn-link {
+  background: transparent;
+  color:      var(--color-content-brand);
+  border:     none;
+}
+.btn-link:hover:not(:disabled)  { color: var(--color-content-brand-hover);    text-decoration: underline; }
+.btn-link:active:not(:disabled) { color: var(--color-content-brand-pressed);  text-decoration: underline; }
+.btn-link:disabled              { color: var(--color-neutral-150); text-decoration: none; }
+
+/* ── Loading spinner ─────────────────────────────────────────────────────── */
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn-spinner {
+  border:           2px solid transparent;
+  border-top-color: currentColor;
+  border-radius:    50%;
+  animation:        btn-spin 0.55s linear infinite;
+  flex-shrink:      0;
+  display:          block;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Icon Button
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.icon-btn {
+  font-family:  Inter, sans-serif;
+  border-radius: 9999px;
+  cursor:        pointer;
+  display:       inline-flex;
+  align-items:   center;
+  justify-content: center;
+  flex-shrink:   0;
+  border:        1px solid transparent;
+  outline:       none;
+  user-select:   none;
+  transition:    background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.icon-btn:focus-visible {
+  outline:        3px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.icon-btn:disabled { cursor: not-allowed; }
+
+/* ── Icon Button sizes ───────────────────────────────────────────────────── */
+
+.icon-btn-2xs { width: 32px; height: 32px; }
+.icon-btn-xs  { width: 40px; height: 40px; }
+.icon-btn-sm  { width: 48px; height: 48px; }
+.icon-btn-md  { width: 56px; height: 56px; }
+.icon-btn-lg  { width: 64px; height: 64px; }
+.icon-btn-xl  { width: 72px; height: 72px; }
+.icon-btn-2xl { width: 80px; height: 80px; }
+
+/* ── Icon Button filled ──────────────────────────────────────────────────── */
+
+.icon-btn-filled {
+  background: var(--color-bg-brand);
+  color:      var(--color-content-primary-inverse);
+}
+.icon-btn-filled:hover:not(:disabled)  { background: var(--color-bg-brand-hover);   }
+.icon-btn-filled:active:not(:disabled) { background: var(--color-bg-brand-pressed); }
+.icon-btn-filled:disabled              { background: var(--color-neutral-100);       }
+
+/* ── Icon Button outline ─────────────────────────────────────────────────── */
+
+.icon-btn-outline {
+  background:   var(--color-bg-primary);
+  color:        var(--color-content-primary);
+  border-color: var(--color-border-tertiary);
+}
+.icon-btn-outline:hover:not(:disabled)  { background: var(--color-bg-hover);   }
+.icon-btn-outline:active:not(:disabled) { background: var(--color-bg-pressed); }
+.icon-btn-outline:disabled {
+  color:        var(--color-neutral-150);
+  border-color: var(--color-neutral-100);
+}

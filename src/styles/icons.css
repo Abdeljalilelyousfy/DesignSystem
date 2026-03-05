@@ -1,0 +1,19 @@
+/*
+ * Icon Foundations
+ * Source: Figma – WDS.Foundations: Icon (node 2:13)
+ * Library: Phosphor Icons — https://phosphoricons.com
+ *
+ * 1,445 icons across 18 categories.
+ * Each icon ships in 6 weights: Thin, Light, Regular, Bold, Fill, Duotone.
+ */
+
+:root {
+  /* ── Icon sizes ──────────────────────────────────────────────────────────── */
+  --icon-size-xs:  12px;
+  --icon-size-s:   16px;
+  --icon-size-m:   20px;
+  --icon-size-l:   24px;
+  --icon-size-xl:  32px;
+  --icon-size-2xl: 40px;
+  --icon-size-3xl: 48px;
+}

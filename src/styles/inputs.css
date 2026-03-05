@@ -1,0 +1,220 @@
+/*
+ * Input Field & Text Area Atoms
+ * Source: Figma – ⚛️ Atoms: Inputs (node 2:17)
+ *
+ * Components : Input (single-line) · TextArea (multi-line)
+ * States     : Active · Hover · Focused · Filled · Disabled · View Only
+ * Feedback   : none · error · warning · success
+ *
+ * Focus ring uses box-shadow to avoid 1→2px layout shift.
+ * Feedback backgrounds use rgba at 30% opacity, derived from color tokens.
+ * All other values reference tokens from colors.css — no hardcoded hex.
+ */
+
+/* ── Wrapper ─────────────────────────────────────────────────────────────── */
+
+.input-wrapper {
+  display:        flex;
+  flex-direction: column;
+  gap:            8px;
+  width:          100%;
+}
+
+/* ── Label ───────────────────────────────────────────────────────────────── */
+
+.input-label {
+  font-family: Inter, sans-serif;
+  font-size:   14px;
+  font-weight: 400;
+  line-height: 20px;
+  color:       var(--color-content-primary);
+}
+
+/* ── Field box (the visible container around the input element) ──────────── */
+
+.input-field-box {
+  display:       flex;
+  align-items:   center;
+  gap:           8px;
+  height:        48px;
+  padding:       12px 16px;
+  background:    var(--color-bg-primary);
+  border:        1px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  cursor:        text;
+  box-sizing:    border-box;
+  transition:    border-color 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+/* Hover (unfocused, not disabled) */
+.input-field-box:hover:not(:has(:disabled)):not(:focus-within) {
+  border-color: var(--color-border-secondary);
+}
+
+/* Focused — adds a second ring via box-shadow to simulate 2px border without layout shift */
+.input-field-box:focus-within:not(:has(:disabled)) {
+  border-color: var(--color-border-focus);
+  box-shadow:   0 0 0 1px var(--color-border-focus);
+}
+
+/* Disabled — overrides all feedback states */
+.input-field-box:has(.input-field:disabled) {
+  background:   var(--color-bg-hover) !important;
+  border-color: var(--color-neutral-100) !important;
+  box-shadow:   none !important;
+  cursor:       not-allowed;
+}
+
+/* ── Input element ───────────────────────────────────────────────────────── */
+
+.input-field {
+  flex:        1;
+  font-family: Inter, sans-serif;
+  font-size:   16px;
+  font-weight: 400;
+  line-height: 24px;
+  color:       var(--color-content-primary);
+  background:  transparent;
+  border:      none;
+  outline:     none;
+  padding:     0;
+  min-width:   0;
+  cursor:      text;
+}
+
+.input-field::placeholder   { color: var(--color-neutral-550); }
+.input-field:disabled       { color: var(--color-neutral-550); cursor: not-allowed; }
+.input-field:read-only      { cursor: default; }
+
+/* ── Icons ───────────────────────────────────────────────────────────────── */
+
+.input-icon {
+  color:       var(--color-neutral-550);
+  display:     flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Helper row ──────────────────────────────────────────────────────────── */
+
+.input-helper {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+}
+
+.input-helper-icon {
+  color:       var(--color-neutral-550);
+  display:     flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.input-helper-text {
+  font-family: Inter, sans-serif;
+  font-size:   12px;
+  font-weight: 400;
+  line-height: 16px;
+  color:       var(--color-neutral-550);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TextArea overrides
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.input-textarea-box {
+  height:        auto;
+  min-height:    104px;
+  align-items:   flex-start;
+  padding-top:   12px;
+  padding-bottom: 12px;
+  /* Textarea keeps 1px on focus (no double ring) */
+  --input-textarea: 1;
+}
+
+/* Cancel the 2px focus ring for textarea */
+.input-textarea-box:focus-within:not(:has(:disabled)) {
+  box-shadow: none;
+}
+
+.input-textarea-box .input-field {
+  resize:       vertical;
+  min-height:   80px;
+  align-self:   flex-start;
+  line-height:  24px;
+  padding-top:  0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Feedback variants
+   Background fills use rgba at 30% opacity — value derived from color tokens:
+     error   #FACCCC = --color-bg-error-subtle
+     warning #FFF5CC = --color-bg-warning-subtle
+     success #CCEBD6 = --color-bg-success-subtle
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Error ───────────────────────────────────────────────────────────────── */
+
+.input-feedback-error .input-field-box {
+  background:   rgba(250, 204, 204, 0.30);
+  border-color: var(--color-border-error);
+}
+.input-feedback-error .input-field-box:hover:not(:focus-within):not(:has(:disabled)) {
+  border-color: var(--color-border-error);
+}
+.input-feedback-error .input-field-box:focus-within:not(:has(:disabled)) {
+  background:   var(--color-bg-primary);
+  border-color: var(--color-border-error);
+  box-shadow:   0 0 0 1px var(--color-border-error);
+}
+.input-feedback-error .input-textarea-box:focus-within:not(:has(:disabled)) {
+  box-shadow: none;
+}
+.input-feedback-error .input-helper-icon,
+.input-feedback-error .input-helper-text {
+  color: var(--color-content-error);
+}
+
+/* ── Warning ─────────────────────────────────────────────────────────────── */
+
+.input-feedback-warning .input-field-box {
+  background:   rgba(255, 245, 204, 0.30);
+  border-color: var(--color-border-warning);
+}
+.input-feedback-warning .input-field-box:hover:not(:focus-within):not(:has(:disabled)) {
+  border-color: var(--color-border-warning);
+}
+.input-feedback-warning .input-field-box:focus-within:not(:has(:disabled)) {
+  background:   var(--color-bg-primary);
+  border-color: var(--color-border-warning);
+  box-shadow:   0 0 0 1px var(--color-border-warning);
+}
+.input-feedback-warning .input-textarea-box:focus-within:not(:has(:disabled)) {
+  box-shadow: none;
+}
+.input-feedback-warning .input-helper-icon,
+.input-feedback-warning .input-helper-text {
+  color: var(--color-yellow-600);
+}
+
+/* ── Success ─────────────────────────────────────────────────────────────── */
+
+.input-feedback-success .input-field-box {
+  background:   rgba(204, 235, 214, 0.30);
+  border-color: var(--color-border-success);
+}
+.input-feedback-success .input-field-box:hover:not(:focus-within):not(:has(:disabled)) {
+  border-color: var(--color-border-success);
+}
+.input-feedback-success .input-field-box:focus-within:not(:has(:disabled)) {
+  background:   var(--color-bg-primary);
+  border-color: var(--color-border-success);
+  box-shadow:   0 0 0 1px var(--color-border-success);
+}
+.input-feedback-success .input-textarea-box:focus-within:not(:has(:disabled)) {
+  box-shadow: none;
+}
+.input-feedback-success .input-helper-icon,
+.input-feedback-success .input-helper-text {
+  color: var(--color-content-success);
+}

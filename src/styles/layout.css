@@ -1,0 +1,42 @@
+/*
+ * Layout & Breakpoints Foundations
+ * Source: Figma – WDS.Foundations: Layout and Breakpoints (node 254-6897)
+ *
+ * 4 breakpoints, responsive column grid, 16px gutter throughout
+ */
+
+:root {
+  /* ── Breakpoints ─────────────────────────────────────────────────────── */
+  --breakpoint-s:  393px;   /* Mobile                                    */
+  --breakpoint-m:  768px;   /* Tablet Portrait                           */
+  --breakpoint-l:  1024px;  /* Tablet Landscape                          */
+  --breakpoint-xl: 1440px;  /* Desktop                                   */
+
+  /* ── Grid ────────────────────────────────────────────────────────────── */
+  --grid-gutter:  16px;     /* Consistent gutter across all breakpoints  */
+
+  /* Desktop (XL — 1440px): 12 columns, 80px margin */
+  --grid-xl-columns: 12;
+  --grid-xl-margin:  80px;
+  --grid-xl-col-width: 92px;
+
+  /* Tablet Landscape (L — 1024px): 12 columns, ~40px margin */
+  --grid-l-columns: 12;
+  --grid-l-margin:  40px;
+
+  /* Tablet Portrait (M — 768px): 8 columns, 32px margin */
+  --grid-m-columns: 8;
+  --grid-m-margin:  32px;
+  --grid-m-col-width: 74px;
+
+  /* Mobile (S — 393px): 4 columns, 16px margin */
+  --grid-s-columns: 4;
+  --grid-s-margin:  16px;
+  --grid-s-col-width: 78.25px;
+
+  /* ── Container max-widths ────────────────────────────────────────────── */
+  --container-xl: 1440px;
+  --container-l:  1024px;
+  --container-m:   768px;
+  --container-s:   393px;
+}

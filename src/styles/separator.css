@@ -1,0 +1,55 @@
+/*
+ * Separator Atom
+ * Source: Figma – ⚛️ Atoms: Separator (node 894:15148), component set 894:15144
+ *
+ * Variants : Horizontal · Vertical · (Labeled — extended for common usage)
+ * Stroke   : #c2c8d1 = var(--color-border-tertiary) · 1 px
+ */
+
+/* ── Horizontal ──────────────────────────────────────────────────────────── */
+
+.separator-h {
+  border:     0;
+  border-top: 1px solid var(--color-border-tertiary);
+  width:      100%;
+  margin:     0;
+}
+
+/* ── Vertical ────────────────────────────────────────────────────────────── */
+
+.separator-v {
+  display:      inline-block;
+  border:       0;
+  border-left:  1px solid var(--color-border-tertiary);
+  align-self:   stretch;
+  height:       auto;
+  width:        0;
+  margin:       0;
+}
+
+/* ── Labeled variant (line — text — line) ────────────────────────────────── */
+
+.separator-labeled {
+  display:     flex;
+  align-items: center;
+  gap:         12px;
+  width:       100%;
+}
+
+.separator-labeled-line {
+  flex:       1;
+  border:     0;
+  border-top: 1px solid var(--color-border-tertiary);
+  margin:     0;
+}
+
+.separator-label-text {
+  font-family:  Inter, sans-serif;
+  font-size:    12px;
+  font-weight:  400;
+  line-height:  16px;
+  color:        var(--color-content-tertiary);
+  white-space:  nowrap;
+  flex-shrink:  0;
+  user-select:  none;
+}

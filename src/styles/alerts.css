@@ -1,0 +1,175 @@
+/*
+ * Alert Atoms
+ * Source: Figma – ⚛️ Atoms: Alerts (node 406:12835)
+ *
+ * Variants : active | error | warning | success | info
+ * Sizes    : desktop | mobile  (body text 16px vs 14px)
+ * Parts    : icon · title · description · action button · close button
+ *
+ * Border radius: 0px (Sharp corners — as per Figma spec)
+ * All colour values reference tokens from colors.css — no hardcoded hex.
+ */
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+
+.alert {
+  display:     flex;
+  align-items: flex-start;
+  gap:         16px;
+  padding:     16px;
+  border:      1px solid var(--alert-border-color);
+  background:  var(--alert-bg);
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Icon ────────────────────────────────────────────────────────────────── */
+
+.alert-icon {
+  color:      var(--alert-icon-color);
+  flex-shrink: 0;
+  display:    flex;
+  align-items: flex-start;
+  padding-top: 2px; /* optical alignment with first text line */
+}
+
+/* ── Body ────────────────────────────────────────────────────────────────── */
+
+.alert-body {
+  flex:           1;
+  display:        flex;
+  flex-direction: column;
+  gap:            24px;
+  min-width:      0;
+}
+
+.alert-content {
+  display:        flex;
+  flex-direction: column;
+  gap:            8px;
+}
+
+/* ── Title ───────────────────────────────────────────────────────────────── */
+
+.alert-title {
+  font-family:    Roboto, sans-serif;
+  font-size:      16px;
+  font-weight:    600;
+  line-height:    24px;
+  letter-spacing: -0.5px;
+  color:          var(--alert-title-color);
+  margin:         0;
+}
+
+/* ── Description ─────────────────────────────────────────────────────────── */
+
+.alert-description {
+  font-family: Inter, sans-serif;
+  font-size:   16px;
+  font-weight: 400;
+  line-height: 24px;
+  color:       var(--alert-description-color);
+  margin:      0;
+}
+
+.alert-mobile .alert-description {
+  font-size:   14px;
+  line-height: 20px;
+}
+
+/* ── Action button ───────────────────────────────────────────────────────── */
+
+.alert-action {
+  font-family:     Inter, sans-serif;
+  font-size:       14px;
+  font-weight:     600;
+  color:           var(--alert-action-color);
+  background:      none;
+  border:          none;
+  padding:         0;
+  cursor:          pointer;
+  text-align:      left;
+  text-decoration: underline;
+  align-self:      flex-start;
+}
+
+.alert-action:hover  { opacity: 0.75; }
+.alert-action:active { opacity: 0.6;  }
+
+/* ── Close button ────────────────────────────────────────────────────────── */
+
+.alert-close {
+  color:       var(--alert-icon-color);
+  background:  none;
+  border:      none;
+  padding:     0;
+  cursor:      pointer;
+  display:     flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  padding-top: 2px;
+  outline:     none;
+  transition:  opacity 0.12s ease;
+}
+
+.alert-close:hover        { opacity: 0.7; }
+.alert-close:focus-visible {
+  outline:        2px solid var(--alert-border-color);
+  outline-offset: 2px;
+  border-radius:  2px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Variants — scoped CSS custom properties
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Active (neutral / default) */
+.alert-active {
+  --alert-bg:                var(--color-bg-primary);
+  --alert-border-color:      var(--color-border-tertiary);
+  --alert-icon-color:        var(--color-neutral-750);
+  --alert-title-color:       var(--color-neutral-750);
+  --alert-description-color: var(--color-neutral-550);
+  --alert-action-color:      var(--color-neutral-750);
+}
+
+/* Error */
+.alert-error {
+  --alert-bg:                var(--color-bg-error-subtle);
+  --alert-border-color:      var(--color-border-error);
+  --alert-icon-color:        var(--color-content-error-bold);
+  --alert-title-color:       var(--color-content-error-bold);
+  --alert-description-color: var(--color-content-error);
+  --alert-action-color:      var(--color-content-error-bold);
+}
+
+/* Warning */
+.alert-warning {
+  --alert-bg:                var(--color-bg-warning-subtle);
+  --alert-border-color:      var(--color-border-warning);
+  --alert-icon-color:        var(--color-content-warning-bold);
+  --alert-title-color:       var(--color-content-warning-bold);
+  --alert-description-color: var(--color-yellow-600);
+  --alert-action-color:      var(--color-content-warning-bold);
+}
+
+/* Success */
+.alert-success {
+  --alert-bg:                var(--color-bg-success-subtle);
+  --alert-border-color:      var(--color-border-success);
+  --alert-icon-color:        var(--color-content-success-bold);
+  --alert-title-color:       var(--color-content-success-bold);
+  --alert-description-color: var(--color-content-success);
+  --alert-action-color:      var(--color-content-success-bold);
+}
+
+/* Info */
+.alert-info {
+  --alert-bg:                var(--color-bg-info-subtle);
+  --alert-border-color:      var(--color-border-info);
+  --alert-icon-color:        var(--color-content-info);
+  --alert-title-color:       var(--color-content-info);
+  --alert-description-color: var(--color-content-info);
+  --alert-action-color:      var(--color-content-info);
+}

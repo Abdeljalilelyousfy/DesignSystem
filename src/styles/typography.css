@@ -1,0 +1,357 @@
+/*
+ * Typography Foundations
+ * Source: Figma – WDS.Foundations: Typography (node 233-6009)
+ *
+ * Three breakpoints: Web (desktop), Tablet, Mobile
+ * Two font families:
+ *   - Roboto  → Web headings (5XL – 2XS, except 2XL which uses Inter)
+ *   - Inter   → All text styles; all Tablet & Mobile styles
+ * Two weights: Regular (400), Semibold (600)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@600&display=swap');
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Design Tokens — CSS Custom Properties
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Font Families */
+  --font-roboto: 'Roboto', sans-serif;
+  --font-inter:  'Inter',  sans-serif;
+
+  /* Font Weights */
+  --font-weight-regular:  400;
+  --font-weight-semibold: 600;
+
+  /* ── Web / Desktop ─────────────────────────────────────────────────────── */
+
+  /* Heading 5XL  |  Roboto SemiBold  72/80  -1px */
+  --web-heading-5xl-font-family:    var(--font-roboto);
+  --web-heading-5xl-font-size:      72px;
+  --web-heading-5xl-font-weight:    var(--font-weight-semibold);
+  --web-heading-5xl-line-height:    80px;
+  --web-heading-5xl-letter-spacing: -1px;
+
+  /* Heading 4XL  |  Roboto SemiBold  64/72  -1px */
+  --web-heading-4xl-font-family:    var(--font-roboto);
+  --web-heading-4xl-font-size:      64px;
+  --web-heading-4xl-font-weight:    var(--font-weight-semibold);
+  --web-heading-4xl-line-height:    72px;
+  --web-heading-4xl-letter-spacing: -1px;
+
+  /* Heading 3XL  |  Roboto SemiBold  56/64  -1px */
+  --web-heading-3xl-font-family:    var(--font-roboto);
+  --web-heading-3xl-font-size:      56px;
+  --web-heading-3xl-font-weight:    var(--font-weight-semibold);
+  --web-heading-3xl-line-height:    64px;
+  --web-heading-3xl-letter-spacing: -1px;
+
+  /* Heading 2XL  |  Inter SemiBold  48/56  -1px */
+  --web-heading-2xl-font-family:    var(--font-inter);
+  --web-heading-2xl-font-size:      48px;
+  --web-heading-2xl-font-weight:    var(--font-weight-semibold);
+  --web-heading-2xl-line-height:    56px;
+  --web-heading-2xl-letter-spacing: -1px;
+
+  /* Heading XL  |  Roboto SemiBold  40/48  -1px */
+  --web-heading-xl-font-family:    var(--font-roboto);
+  --web-heading-xl-font-size:      40px;
+  --web-heading-xl-font-weight:    var(--font-weight-semibold);
+  --web-heading-xl-line-height:    48px;
+  --web-heading-xl-letter-spacing: -1px;
+
+  /* Heading L  |  Roboto SemiBold  32/40  -1px */
+  --web-heading-l-font-family:    var(--font-roboto);
+  --web-heading-l-font-size:      32px;
+  --web-heading-l-font-weight:    var(--font-weight-semibold);
+  --web-heading-l-line-height:    40px;
+  --web-heading-l-letter-spacing: -1px;
+
+  /* Heading M  |  Roboto SemiBold  24/32  -0.5px */
+  --web-heading-m-font-family:    var(--font-roboto);
+  --web-heading-m-font-size:      24px;
+  --web-heading-m-font-weight:    var(--font-weight-semibold);
+  --web-heading-m-line-height:    32px;
+  --web-heading-m-letter-spacing: -0.5px;
+
+  /* Heading S  |  Roboto SemiBold  20/28  -0.5px */
+  --web-heading-s-font-family:    var(--font-roboto);
+  --web-heading-s-font-size:      20px;
+  --web-heading-s-font-weight:    var(--font-weight-semibold);
+  --web-heading-s-line-height:    28px;
+  --web-heading-s-letter-spacing: -0.5px;
+
+  /* Heading XS  |  Roboto SemiBold  16/24  -0.5px */
+  --web-heading-xs-font-family:    var(--font-roboto);
+  --web-heading-xs-font-size:      16px;
+  --web-heading-xs-font-weight:    var(--font-weight-semibold);
+  --web-heading-xs-line-height:    24px;
+  --web-heading-xs-letter-spacing: -0.5px;
+
+  /* Heading 2XS  |  Roboto SemiBold  14/20  0px */
+  --web-heading-2xs-font-family:    var(--font-roboto);
+  --web-heading-2xs-font-size:      14px;
+  --web-heading-2xs-font-weight:    var(--font-weight-semibold);
+  --web-heading-2xs-line-height:    20px;
+  --web-heading-2xs-letter-spacing: 0px;
+
+  /* Text XL  |  Inter  18/26  0px */
+  --web-text-xl-font-family:    var(--font-inter);
+  --web-text-xl-font-size:      18px;
+  --web-text-xl-line-height:    26px;
+  --web-text-xl-letter-spacing: 0px;
+
+  /* Text L  |  Inter  16/24  0px */
+  --web-text-l-font-family:    var(--font-inter);
+  --web-text-l-font-size:      16px;
+  --web-text-l-line-height:    24px;
+  --web-text-l-letter-spacing: 0px;
+
+  /* Text M  |  Inter  14/20  0px */
+  --web-text-m-font-family:    var(--font-inter);
+  --web-text-m-font-size:      14px;
+  --web-text-m-line-height:    20px;
+  --web-text-m-letter-spacing: 0px;
+
+  /* Text S  |  Inter  12/16  0px */
+  --web-text-s-font-family:    var(--font-inter);
+  --web-text-s-font-size:      12px;
+  --web-text-s-line-height:    16px;
+  --web-text-s-letter-spacing: 0px;
+
+  /* Text XS  |  Inter  10/14  0px */
+  --web-text-xs-font-family:    var(--font-inter);
+  --web-text-xs-font-size:      10px;
+  --web-text-xs-line-height:    14px;
+  --web-text-xs-letter-spacing: 0px;
+
+  /* ── Tablet ────────────────────────────────────────────────────────────── */
+
+  /* Heading 5XL  |  Inter SemiBold  64/72  -1px */
+  --tablet-heading-5xl-font-size:      64px;
+  --tablet-heading-5xl-line-height:    72px;
+  --tablet-heading-5xl-letter-spacing: -1px;
+
+  /* Heading 4XL  |  Inter SemiBold  56/72  -1px */
+  --tablet-heading-4xl-font-size:      56px;
+  --tablet-heading-4xl-line-height:    72px;
+  --tablet-heading-4xl-letter-spacing: -1px;
+
+  /* Heading 3XL  |  Inter SemiBold  48/64  -1px */
+  --tablet-heading-3xl-font-size:      48px;
+  --tablet-heading-3xl-line-height:    64px;
+  --tablet-heading-3xl-letter-spacing: -1px;
+
+  /* Heading 2XL  |  Inter SemiBold  40/56  -1px */
+  --tablet-heading-2xl-font-size:      40px;
+  --tablet-heading-2xl-line-height:    56px;
+  --tablet-heading-2xl-letter-spacing: -1px;
+
+  /* Heading XL  |  Inter SemiBold  32/48  -1px */
+  --tablet-heading-xl-font-size:      32px;
+  --tablet-heading-xl-line-height:    48px;
+  --tablet-heading-xl-letter-spacing: -1px;
+
+  /* Heading L  |  Inter SemiBold  28/40  -0.5px */
+  --tablet-heading-l-font-size:      28px;
+  --tablet-heading-l-line-height:    40px;
+  --tablet-heading-l-letter-spacing: -0.5px;
+
+  /* Heading M  |  Inter SemiBold  20/32  -0.5px */
+  --tablet-heading-m-font-size:      20px;
+  --tablet-heading-m-line-height:    32px;
+  --tablet-heading-m-letter-spacing: -0.5px;
+
+  /* Heading S  |  Inter SemiBold  18/28  -0.5px */
+  --tablet-heading-s-font-size:      18px;
+  --tablet-heading-s-line-height:    28px;
+  --tablet-heading-s-letter-spacing: -0.5px;
+
+  /* Heading XS  |  Inter SemiBold  16/24  -0.5px */
+  --tablet-heading-xs-font-size:      16px;
+  --tablet-heading-xs-line-height:    24px;
+  --tablet-heading-xs-letter-spacing: -0.5px;
+
+  /* Heading 2XS  |  Inter SemiBold  14/20  0px */
+  --tablet-heading-2xs-font-size:      14px;
+  --tablet-heading-2xs-line-height:    20px;
+  --tablet-heading-2xs-letter-spacing: 0px;
+
+  /* Tablet text sizes match Web text sizes (same Inter values) */
+
+  /* ── Mobile ────────────────────────────────────────────────────────────── */
+
+  /* Heading 5XL  |  Inter SemiBold  48/64  -1px */
+  --mobile-heading-5xl-font-size:      48px;
+  --mobile-heading-5xl-line-height:    64px;
+  --mobile-heading-5xl-letter-spacing: -1px;
+
+  /* Heading 4XL  |  Inter SemiBold  40/56  -1px */
+  --mobile-heading-4xl-font-size:      40px;
+  --mobile-heading-4xl-line-height:    56px;
+  --mobile-heading-4xl-letter-spacing: -1px;
+
+  /* Heading 3XL  |  Inter SemiBold  32/48  -1px */
+  --mobile-heading-3xl-font-size:      32px;
+  --mobile-heading-3xl-line-height:    48px;
+  --mobile-heading-3xl-letter-spacing: -1px;
+
+  /* Heading 2XL  |  Inter SemiBold  28/40  -1px */
+  --mobile-heading-2xl-font-size:      28px;
+  --mobile-heading-2xl-line-height:    40px;
+  --mobile-heading-2xl-letter-spacing: -1px;
+
+  /* Heading XL  |  Inter SemiBold  24/36  -1px */
+  --mobile-heading-xl-font-size:      24px;
+  --mobile-heading-xl-line-height:    36px;
+  --mobile-heading-xl-letter-spacing: -1px;
+
+  /* Heading L  |  Inter SemiBold  20/32  -0.5px */
+  --mobile-heading-l-font-size:      20px;
+  --mobile-heading-l-line-height:    32px;
+  --mobile-heading-l-letter-spacing: -0.5px;
+
+  /* Heading M  |  Inter SemiBold  18/26  -0.5px */
+  --mobile-heading-m-font-size:      18px;
+  --mobile-heading-m-line-height:    26px;
+  --mobile-heading-m-letter-spacing: -0.5px;
+
+  /* Heading S  |  Inter SemiBold  16/24  -0.5px */
+  --mobile-heading-s-font-size:      16px;
+  --mobile-heading-s-line-height:    24px;
+  --mobile-heading-s-letter-spacing: -0.5px;
+
+  /* Heading XS  |  Inter SemiBold  12/16  -0.5px */
+  --mobile-heading-xs-font-size:      12px;
+  --mobile-heading-xs-line-height:    16px;
+  --mobile-heading-xs-letter-spacing: -0.5px;
+
+  /* Heading 2XS  |  Inter SemiBold  10/14  0px */
+  --mobile-heading-2xs-font-size:      10px;
+  --mobile-heading-2xs-line-height:    14px;
+  --mobile-heading-2xs-letter-spacing: 0px;
+
+  /* Mobile text */
+  --mobile-text-xl-font-size:   16px;
+  --mobile-text-xl-line-height: 24px;
+
+  --mobile-text-l-font-size:   14px;
+  --mobile-text-l-line-height: 20px;
+
+  --mobile-text-m-font-size:   12px;
+  --mobile-text-m-line-height: 16px;
+
+  --mobile-text-s-font-size:   10px;
+  --mobile-text-s-line-height: 14px;
+
+  --mobile-text-xs-font-size:   10px;
+  --mobile-text-xs-line-height: 14px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Utility Classes — Web Headings
+   ───────────────────────────────────────────────────────────────────────────── */
+.type-heading-5xl {
+  font-family:    var(--web-heading-5xl-font-family);
+  font-size:      var(--web-heading-5xl-font-size);
+  font-weight:    var(--web-heading-5xl-font-weight);
+  line-height:    var(--web-heading-5xl-line-height);
+  letter-spacing: var(--web-heading-5xl-letter-spacing);
+}
+.type-heading-4xl {
+  font-family:    var(--web-heading-4xl-font-family);
+  font-size:      var(--web-heading-4xl-font-size);
+  font-weight:    var(--web-heading-4xl-font-weight);
+  line-height:    var(--web-heading-4xl-line-height);
+  letter-spacing: var(--web-heading-4xl-letter-spacing);
+}
+.type-heading-3xl {
+  font-family:    var(--web-heading-3xl-font-family);
+  font-size:      var(--web-heading-3xl-font-size);
+  font-weight:    var(--web-heading-3xl-font-weight);
+  line-height:    var(--web-heading-3xl-line-height);
+  letter-spacing: var(--web-heading-3xl-letter-spacing);
+}
+.type-heading-2xl {
+  font-family:    var(--web-heading-2xl-font-family);
+  font-size:      var(--web-heading-2xl-font-size);
+  font-weight:    var(--web-heading-2xl-font-weight);
+  line-height:    var(--web-heading-2xl-line-height);
+  letter-spacing: var(--web-heading-2xl-letter-spacing);
+}
+.type-heading-xl {
+  font-family:    var(--web-heading-xl-font-family);
+  font-size:      var(--web-heading-xl-font-size);
+  font-weight:    var(--web-heading-xl-font-weight);
+  line-height:    var(--web-heading-xl-line-height);
+  letter-spacing: var(--web-heading-xl-letter-spacing);
+}
+.type-heading-l {
+  font-family:    var(--web-heading-l-font-family);
+  font-size:      var(--web-heading-l-font-size);
+  font-weight:    var(--web-heading-l-font-weight);
+  line-height:    var(--web-heading-l-line-height);
+  letter-spacing: var(--web-heading-l-letter-spacing);
+}
+.type-heading-m {
+  font-family:    var(--web-heading-m-font-family);
+  font-size:      var(--web-heading-m-font-size);
+  font-weight:    var(--web-heading-m-font-weight);
+  line-height:    var(--web-heading-m-line-height);
+  letter-spacing: var(--web-heading-m-letter-spacing);
+}
+.type-heading-s {
+  font-family:    var(--web-heading-s-font-family);
+  font-size:      var(--web-heading-s-font-size);
+  font-weight:    var(--web-heading-s-font-weight);
+  line-height:    var(--web-heading-s-line-height);
+  letter-spacing: var(--web-heading-s-letter-spacing);
+}
+.type-heading-xs {
+  font-family:    var(--web-heading-xs-font-family);
+  font-size:      var(--web-heading-xs-font-size);
+  font-weight:    var(--web-heading-xs-font-weight);
+  line-height:    var(--web-heading-xs-line-height);
+  letter-spacing: var(--web-heading-xs-letter-spacing);
+}
+.type-heading-2xs {
+  font-family:    var(--web-heading-2xs-font-family);
+  font-size:      var(--web-heading-2xs-font-size);
+  font-weight:    var(--web-heading-2xs-font-weight);
+  line-height:    var(--web-heading-2xs-line-height);
+  letter-spacing: var(--web-heading-2xs-letter-spacing);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Utility Classes — Text Styles
+   ───────────────────────────────────────────────────────────────────────────── */
+.type-text-xl {
+  font-family:    var(--web-text-xl-font-family);
+  font-size:      var(--web-text-xl-font-size);
+  line-height:    var(--web-text-xl-line-height);
+  letter-spacing: var(--web-text-xl-letter-spacing);
+}
+.type-text-l {
+  font-family:    var(--web-text-l-font-family);
+  font-size:      var(--web-text-l-font-size);
+  line-height:    var(--web-text-l-line-height);
+  letter-spacing: var(--web-text-l-letter-spacing);
+}
+.type-text-m {
+  font-family:    var(--web-text-m-font-family);
+  font-size:      var(--web-text-m-font-size);
+  line-height:    var(--web-text-m-line-height);
+  letter-spacing: var(--web-text-m-letter-spacing);
+}
+.type-text-s {
+  font-family:    var(--web-text-s-font-family);
+  font-size:      var(--web-text-s-font-size);
+  line-height:    var(--web-text-s-line-height);
+  letter-spacing: var(--web-text-s-letter-spacing);
+}
+.type-text-xs {
+  font-family:    var(--web-text-xs-font-family);
+  font-size:      var(--web-text-xs-font-size);
+  line-height:    var(--web-text-xs-line-height);
+  letter-spacing: var(--web-text-xs-letter-spacing);
+}

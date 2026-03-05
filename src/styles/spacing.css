@@ -1,0 +1,30 @@
+/*
+ * Spacing Foundations
+ * Source: Figma – WDS.Foundations: Spacing (node 247-2093)
+ *
+ * 8-point system: base = 8px, each step = base × multiplier
+ * 17 steps from 2XS (2px) to 12XL (112px)
+ */
+
+:root {
+  --space-base: 8px;
+
+  /* T-shirt scale */
+  --space-2xs:  2px;   /* ×0.25 */
+  --space-xs:   4px;   /* ×0.5  */
+  --space-s:    8px;   /* ×1    */
+  --space-m:    12px;  /* ×1.5  */
+  --space-l:    16px;  /* ×2    */
+  --space-xl:   24px;  /* ×3    */
+  --space-2xl:  32px;  /* ×4    */
+  --space-3xl:  40px;  /* ×5    */
+  --space-4xl:  48px;  /* ×6    */
+  --space-5xl:  56px;  /* ×7    */
+  --space-6xl:  64px;  /* ×8    */
+  --space-7xl:  72px;  /* ×9    */
+  --space-8xl:  80px;  /* ×10   */
+  --space-9xl:  88px;  /* ×11   */
+  --space-10xl: 96px;  /* ×12   */
+  --space-11xl: 104px; /* ×13   */
+  --space-12xl: 112px; /* ×14   */
+}
